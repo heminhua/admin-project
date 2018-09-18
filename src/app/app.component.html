@@ -1,21 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="wrapper">
+  <app-app-header></app-app-header>
+  <app-app-nav></app-app-nav>
+  <!-- <div id="content-wrapper" class="content-wrapper transition" [class.isadmin]="router.url=='/admin'"> -->
+  <!-- <section class="content-header overflow">
+     
+      <ol class="breadcrumb">
+        <li *ngFor="let breadcrumb of breadcrumbs;first as isFirst">
+          <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{breadcrumb.label}}</a>
+        </li>
+      </ol>
+    </section> -->
+  <section class="content">
+    <!-- <div [class.isadmin]="router.url=='/admin'" [style.background-image]="bgLogo" >
+       </div> -->
+    <router-outlet></router-outlet>
+  </section>
+  <!-- </div> -->
+  <footer class="main-footer">
+    <!-- <a target="_blank" href="http://www.bgy.com.cn">Copyright &copy; 2018 碧桂园</a> -->
+  </footer>
+  <!--水印-->
+  <!-- <div id="watermark" class="splitBg">
+    <span *ngFor="let waterMark of waterMarks" [ngStyle]="{'top':waterMark.top,'left':waterMark.left}">
+      {{mark}}{{user.UserName}} {{dateTime | date:'yyyy-MM-dd'}}
+    </span>
+  </div> -->
+  <div class="control-sidebar-bg"></div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

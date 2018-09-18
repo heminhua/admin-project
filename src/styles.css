@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+html,body{
+    height: 100%;
+}
+.wrapper {
+    padding: 50px 0 0 200px;
+    box-sizing: border-box;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    background: rgb(13, 218, 232);
+}
+
+.nav {
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    top: 50px;
+    left: 0;
+    background: rgb(246, 243, 247);
+}
+
+.content {
+    height: 100%;
+    padding: 10px 0 0 10px;
+}
