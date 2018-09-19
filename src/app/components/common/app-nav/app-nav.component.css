@@ -1,0 +1,62 @@
+li a {
+    padding: 10px 10px 10px 10px;
+    display: block;
+    color: #595959;
+    line-height: 20px;
+}
+li a span.right{
+  position: absolute;
+  right: 20px;
+}
+
+li ul {
+    height: auto;
+    transition: all .5s;
+    overflow: hidden;
+    height: 0px;
+    padding: 0;
+}
+
+li ul a {
+    text-indent: 24px;
+}
+
+
+li a:hover {
+    color: white;
+    background: rgb(56, 192, 255);
+    text-decoration: none !important;
+}
+
+li ul li.activeNav {
+    background: rgb(56, 192, 255);
+    position: relative;
+    color:#fff;
+}
+li ul li.activeNav a {
+    color:#fff;
+    text-decoration: none !important;
+}
+li ul li.activeNav a:hover {
+    color:#fff;
+    text-decoration: none !important;
+}
+
+/* 三角 */
+
+li ul li.activeNav:before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgb(219, 242, 255);
+}
+
+li ul li.activeNav a {
+    color: white;
+}
+

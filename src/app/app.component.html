@@ -1,30 +1,36 @@
 <div class="wrapper">
   <app-app-header></app-app-header>
   <app-app-nav></app-app-nav>
-  <!-- <div id="content-wrapper" class="content-wrapper transition" [class.isadmin]="router.url=='/admin'"> -->
-  <!-- <section class="content-header overflow">
-     
+
+  <div class=" content-wrapper transition">
+    <section class="content-header overflow">
+
       <ol class="breadcrumb">
-        <li *ngFor="let breadcrumb of breadcrumbs;first as isFirst">
-          <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{breadcrumb.label}}</a>
+        <li>
+          <a href="#">
+            <i class="fa fa-dashboard"></i> 首页</a>
         </li>
+        <li class="active">仪表盘</li>
       </ol>
-    </section> -->
-  <section class="content">
-    <!-- <div [class.isadmin]="router.url=='/admin'" [style.background-image]="bgLogo" >
-       </div> -->
-    <router-outlet></router-outlet>
-  </section>
-  <!-- </div> -->
+    </section>
+
+    <section class="content ">
+      <router-outlet></router-outlet>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <!-- <a target="_blank" href="http://www.bgy.com.cn">Copyright &copy; 2018 碧桂园</a> -->
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
+    </div>
+    <strong>Copyright &copy; 2014-2016
+      <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights reserved.
   </footer>
-  <!--水印-->
-  <!-- <div id="watermark" class="splitBg">
-    <span *ngFor="let waterMark of waterMarks" [ngStyle]="{'top':waterMark.top,'left':waterMark.left}">
-      {{mark}}{{user.UserName}} {{dateTime | date:'yyyy-MM-dd'}}
-    </span>
-  </div> -->
-  <div class="control-sidebar-bg"></div>
+
+  <!-- Control Sidebar -->
+
 </div>
-<!-- <router-outlet></router-outlet> -->
+
+
+<!--  -->

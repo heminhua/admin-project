@@ -1,32 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
-html,body{
-    height: 100%;
+body,html{
+  overflow: hidden;
+  height: auto;
+  box-sizing: border-box;
 }
+
+.activeNav{
+  background: rgb(56, 192, 255);
+}
+ul{
+  list-style: none;
+}
+.mar-left-10{
+  margin-left: 10px;
+}
+.mar-right-10{
+  margin-right: 10px;
+}
+.mar-bottom-10{
+  margin-bottom: 10px;
+}
+.pd-left-10{
+  padding-left: 10px;
+}
+.pd-right-10{
+  padding-right: 10px;
+}
+.pd-top-10{
+  padding-top: 10px;
+}
+.pd-bottom-10{
+  padding-bottom: 10px;
+}
+
+
+.whiteBg{
+  background: #fff !important;
+}
+
+/* common main */
 .wrapper {
-    padding: 50px 0 0 200px;
-    box-sizing: border-box;
-}
-
-.header {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #ccc;
-    background: rgb(13, 218, 232);
-}
-
-.nav {
-    position: absolute;
-    width: 200px;
-    height: 100%;
-    top: 50px;
-    left: 0;
-    background: rgb(246, 243, 247);
+    height: auto;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+   overflow: hidden;
+   overflow-y: hidden;
+    z-index: 10000;
 }
 
 .content {
-    height: 100%;
-    padding: 10px 0 0 10px;
+    min-height: 250px;
+    margin: 6px;
+    margin-right: 0px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: white;
+    padding: 10px 20px 10px 10px;
 }
+.content-header{
+  padding: 0 10px;
+  height: 46px;
+  line-height: 46px;
+  margin-left: 6px;
+  background: #fff !important;
+}
+
+.content-header>ol.breadcrumb{
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  position: static;
+  float: left;
+}
+.main-header{
+  background: rgb(56, 192, 255);
+  color:#fff;
+}
+.main-header a{
+  color:#fff;
+}
+.main-footer{
+  background: white;
+  margin: 0;
+  position: relative;
+  z-index: 10070;
+  height: 35px;
+  text-align: center;
+  min-width: 1024px;
+  line-height: 35px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  padding: 0;
+  border-top: 1px solid #ccc;
+}
+/* common main */

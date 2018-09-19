@@ -28,6 +28,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
+              "src/assets/slimScroll/jquery.slimscroll.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },

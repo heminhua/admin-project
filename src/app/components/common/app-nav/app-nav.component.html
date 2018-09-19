@@ -1,3 +1,330 @@
-<div class="nav">
-  nav
-</div>
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar" style="padding-top:50px">
+      <ul style="padding:0;margin:0">
+          <li *ngFor="let menu of menus">
+            <a (click)="onSelect(menu)" *ngIf="menu.SubMenus.length>0">
+              <i style="vertical-align: middle;" class=" {{menu.FontIcon}}"></i>
+              <span style="vertical-align: middle;display: inline-block;padding-left:8px">{{menu.Title}}</span>
+              <span class="right">
+                <i class="fa {{menu.closed?'fa-angle-right':'fa-angle-down'}}"></i>
+              </span>
+            </a>
+            <ul *ngIf="(menu?.SubMenus?.length>0)" [ngStyle]="{'height':menu.closed?'0px':menu.SubMenus.length*40+'px'}">
+              <li [class.activeNav]="selectsubMeun==subMenu" *ngFor="let subMenu of menu.SubMenus" (click)="selectChild(subMenu)">
+                <a routerLink="{{subMenu.Command}}" routerLinkActive="active">
+                  {{subMenu.Title}}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    <!-- <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">主导航</li>
+      <li class="active treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i>
+          <span>仪表盘</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="active">
+            <a href="index.html">
+              <i class="fa fa-circle-o"></i> 仪表盘 v1</a>
+          </li>
+          <li>
+            <a href="index2.html">
+              <i class="fa fa-circle-o"></i> 仪表盘 v2</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-files-o"></i>
+          <span>布局设置</span>
+          <span class="pull-right-container">
+            <span class="label label-primary pull-right">4</span>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="pages/layout/top-nav.html">
+              <i class="fa fa-circle-o"></i> 顶部导航</a>
+          </li>
+          <li>
+            <a href="pages/layout/boxed.html">
+              <i class="fa fa-circle-o"></i> 盒子</a>
+          </li>
+          <li>
+            <a href="pages/layout/fixed.html">
+              <i class="fa fa-circle-o"></i> 固定侧边栏</a>
+          </li>
+          <li>
+            <a href="pages/layout/collapsed-sidebar.html">
+              <i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="pages/widgets.html">
+          <i class="fa fa-th"></i>
+          <span>小部件</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-green">新</small>
+          </span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-pie-chart"></i>
+          <span>图表</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="pages/charts/chartjs.html">
+              <i class="fa fa-circle-o"></i> ChartJS</a>
+          </li>
+          <li>
+            <a href="pages/charts/morris.html">
+              <i class="fa fa-circle-o"></i> Morris</a>
+          </li>
+          <li>
+            <a href="pages/charts/flot.html">
+              <i class="fa fa-circle-o"></i> Flot</a>
+          </li>
+          <li>
+            <a href="pages/charts/inline.html">
+              <i class="fa fa-circle-o"></i> 内嵌式图表</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-laptop"></i>
+          <span>UI元素</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="pages/UI/general.html">
+              <i class="fa fa-circle-o"></i> 常规</a>
+          </li>
+          <li>
+            <a href="pages/UI/icons.html">
+              <i class="fa fa-circle-o"></i> 图标</a>
+          </li>
+          <li>
+            <a href="pages/UI/buttons.html">
+              <i class="fa fa-circle-o"></i> 按钮</a>
+          </li>
+          <li>
+            <a href="pages/UI/sliders.html">
+              <i class="fa fa-circle-o"></i> 滑块</a>
+          </li>
+          <li>
+            <a href="pages/UI/timeline.html">
+              <i class="fa fa-circle-o"></i> 时间线</a>
+          </li>
+          <li>
+            <a href="pages/UI/modals.html">
+              <i class="fa fa-circle-o"></i> 弹框</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-edit"></i>
+          <span>表单</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="pages/forms/general.html">
+              <i class="fa fa-circle-o"></i> 常规元素</a>
+          </li>
+          <li>
+            <a href="pages/forms/advanced.html">
+              <i class="fa fa-circle-o"></i> 高级元素</a>
+          </li>
+          <li>
+            <a href="pages/forms/editors.html">
+              <i class="fa fa-circle-o"></i> 编辑器</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-table"></i>
+          <span>表格</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="pages/tables/simple.html">
+              <i class="fa fa-circle-o"></i> 表格</a>
+          </li>
+          <li>
+            <a href="pages/tables/data.html">
+              <i class="fa fa-circle-o"></i> 数据表格</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="pages/calendar.html">
+          <i class="fa fa-calendar"></i>
+          <span>日历</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-red">3</small>
+            <small class="label pull-right bg-blue">17</small>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="pages/mailbox/mailbox.html">
+          <i class="fa fa-envelope"></i>
+          <span>邮箱</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-yellow">12</small>
+            <small class="label pull-right bg-green">16</small>
+            <small class="label pull-right bg-red">5</small>
+          </span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-folder"></i>
+          <span>示例</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="pages/examples/invoice.html">
+              <i class="fa fa-circle-o"></i> 单据</a>
+          </li>
+          <li>
+            <a href="pages/examples/profile.html">
+              <i class="fa fa-circle-o"></i> 资料</a>
+          </li>
+          <li>
+            <a href="pages/examples/login.html">
+              <i class="fa fa-circle-o"></i> 登录</a>
+          </li>
+          <li>
+            <a href="pages/examples/register.html">
+              <i class="fa fa-circle-o"></i> 注册</a>
+          </li>
+          <li>
+            <a href="pages/examples/lockscreen.html">
+              <i class="fa fa-circle-o"></i> 锁屏</a>
+          </li>
+          <li>
+            <a href="pages/examples/404.html">
+              <i class="fa fa-circle-o"></i> 404 错误</a>
+          </li>
+          <li>
+            <a href="pages/examples/500.html">
+              <i class="fa fa-circle-o"></i> 500 错误</a>
+          </li>
+          <li>
+            <a href="pages/examples/blank.html">
+              <i class="fa fa-circle-o"></i> 空白页</a>
+          </li>
+          <li>
+            <a href="pages/examples/pace.html">
+              <i class="fa fa-circle-o"></i> 页面加载进度</a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-share"></i>
+          <span>多级菜单</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="#">
+              <i class="fa fa-circle-o"></i> 层级1</a>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-circle-o"></i> 层级1
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="#">
+                  <i class="fa fa-circle-o"></i> 层级2</a>
+              </li>
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-circle-o"></i> 层级2
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-circle-o"></i> 层级3</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-circle-o"></i> 层级3</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-circle-o"></i> 层级1</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://adminlte.io/docs">
+          <i class="fa fa-book"></i>
+          <span>文档</span>
+        </a>
+      </li>
+      <li class="header">标签</li>
+      <li>
+        <a href="#">
+          <i class="fa fa-circle-o text-red"></i>
+          <span>重要</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-circle-o text-yellow"></i>
+          <span>警告</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-circle-o text-aqua"></i>
+          <span>信息</span>
+        </a>
+      </li>
+    </ul> -->
+  </section>
+  <!-- /.sidebar -->
+</aside>
